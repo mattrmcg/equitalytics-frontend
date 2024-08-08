@@ -29,6 +29,9 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        bad: "hsl(var(--bad))",
+        okay: "hsl(var(--okay))",
+        good: "hsl(var(--good))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

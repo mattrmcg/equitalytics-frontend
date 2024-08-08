@@ -2,6 +2,28 @@ import { Card, CardHeader, CardDescription, CardTitle, CardContent, CardFooter }
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { DollarSign } from "lucide-react"
 import { RadialChart } from "@/components/dashboard/test-radial"
+import { ProgressAnimated } from "@/components/dashboard/animated-progess"
+import { Badge } from "@/components/ui/badge"
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+
+function priceToEarningsColor(pe : number): string {
+    if (pe <= 25) {
+        return "good"
+    } else if (pe > 25 && pe < 50) {
+        return "okay"
+    } else {
+        return "bad"
+    }
+}
 
 interface DataDashboardProps {
     ticker: string;
@@ -52,27 +74,80 @@ export const DataDashboard: React.FC<DataDashboardProps> = async ({ ticker}) => 
                 <CardContent className="grid grid-columns-2 gap-4">
                     <Card>
                         <CardHeader>
-                            <CardTitle className="text-md">Price</CardTitle>
+                            <CardTitle className="text-md">Price at Previous Close</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold">${data.marketPricePerShare}</div>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Table className="rounded-lg border">
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell className="font-bold text-md">Net Income:</TableCell>
+                                        <TableCell className="font-bold">{data.netIncome}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-bold text-md">Operating Income:</TableCell>
+                                        <TableCell className="font-bold">{data.operatingIncomeLoss}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-bold text-md">Gross Profit:</TableCell>
+                                        <TableCell className="font-bold">{data.grossProfit}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-bold text-md">Operating Cash Flow:</TableCell>
+                                        <TableCell className="font-bold">{data.operatingCashFlow}</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                    {/* <Card>
                         <CardHeader>
-                            <CardTitle className="text-md">Price</CardTitle>
                         </CardHeader>
-                    </Card>
+                        <CardContent>
+                            <Table className="">
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell>Net Income:</TableCell>
+                                        <TableCell>24000</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Net Income:</TableCell>
+                                        <TableCell>24000</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Net Income:</TableCell>
+                                        <TableCell>24000</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Net Income:</TableCell>
+                                        <TableCell>24000</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </CardContent>
+                    </Card> */}
                 </CardContent>
             </Card>
             <Card className="col-span-2 bg-card">
                 <CardHeader>
                     <CardDescription>Piotroski Score</CardDescription>
                 </CardHeader>
-                <CardContent className="grid grid-cols-3">
-                    <RadialChart points={3} maxPoints={5} label="Profitability" />
+                <CardContent className="grid grid-cols-3 gap-2">
+                    <RadialChart points={data.pointsInProfitability} maxPoints={4} label="Profitability" />
+                    <RadialChart points={data.pointsInLeverageLiquiditySourceOfFunds} maxPoints={3} label="Financial Stability" />
+                    <RadialChart points={data.pointsInOperatingEfficiency} maxPoints={2} label="Operating Efficiency" />
+                    <Card className="col-span-3">
+                        <CardHeader>
+                            <CardTitle className="text-md">Total Score</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex">
+                                <h2 className="text-4xl font-bold">{data.piotroskiScore}</h2>
+                                <ProgressAnimated score={data.piotroskiScore}/>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </CardContent>
-
             </Card>
             <Card className="col-span-3 bg-card">
                 <CardHeader>
@@ -85,6 +160,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = async ({ ticker}) => 
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold">${data.priceToEarningsRatio}</div>
+                            {/* <Badge className={`w-[50%] bg-${priceToEarningsColor(data.priceToEarningsRatio)}`}></Badge> */}
                         </CardContent>
                     </Card>
                     <Card>
@@ -211,6 +287,29 @@ export const DataDashboard: React.FC<DataDashboardProps> = async ({ ticker}) => 
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold">${data.interestCoverageRatio} </div>
+                        </CardContent>
+                    </Card>
+                </CardContent>
+            </Card>
+            <Card className="col-span-1">
+                <CardHeader>
+                    <CardDescription>Holdings</CardDescription>
+                </CardHeader>
+                <CardContent className="grid grid-cols-1 gap-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-md">Assets</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">${data.assets}</div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-md">Liabilities</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold">${data.liabilities}</div>
                         </CardContent>
                     </Card>
                 </CardContent>

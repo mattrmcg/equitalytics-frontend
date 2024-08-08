@@ -20,10 +20,6 @@ import {
 
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 
-const chartData = [
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-]
-
 const chartConfig = {
   points: {
     label: "Points",
@@ -48,7 +44,7 @@ export const RadialChart: React.FC<RadialBarChartProps> = ({ points, maxPoints, 
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-2">
-        <CardTitle className="text-md">{label}</CardTitle>
+        <CardTitle className="text-sm">{label}</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-4">
         <ChartContainer

@@ -21,23 +21,33 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
+interface Ticker {
+    value: string;
+}
 // NEED TO GRAB THIS FROM DATABASE
-const tickers = [
-    {
-        value: "AAPL"
-    },
-    {
-        value: "TSLA"
-    },
-    {
-        value: "ADBE"
-    },
-]
+async function fetchTickers(): Promise<Ticker[]> {
+    try {
+        const res = await fetch("http://localhost:8080/info/tickers");
+        const data = await res.json();
+        return data
+    } catch (error) {
+        console.error(`Error fetching tickers:`, error);
+        return [];
+    }
+}
 
-export const SearchBar = () => {
+interface Ticker {
+    value: string;
+}
+
+interface SearchBarProps {
+    tickers: Ticker[];
+}
+
+export const SearchBar: React.FC<SearchBarProps> = ({ tickers }) => {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
-
+    
     return (
         <div>
             <Popover open={open} onOpenChange={setOpen}>
