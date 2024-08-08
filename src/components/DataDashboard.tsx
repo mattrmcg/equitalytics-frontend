@@ -200,7 +200,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = async ({ ticker}) => 
                         </CardHeader>
                         <CardContent className="">
                             <div className="text-2xl font-bold">${data.grossProfitMargin}</div>
-                            <p className="w-4 h-4 text-muted-foreground">USD</p>
+                            {/* <p className="w-4 h-4 text-muted-foreground">USD</p> */}
                         </CardContent>
                     </Card>
                     <Card>

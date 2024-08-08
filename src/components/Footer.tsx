@@ -7,9 +7,19 @@ export const Footer = () => {
         <footer id="footer">
             <hr className="min-w-full mx-auto" />
 
-            <section className="container p-8 text-center">
+            <section className="container text-center p-2 pb-0 max-w-[65%]">
+                <p className="text-sm text-muted-foreground">
+                    <span className="text-sm font-bold">Disclaimer:</span> Data is sourced directly from the SEC and is extracted from each reporting entity's latest yearly filings. Data is not
+                    guaranteed to be accurate or up-to-date, and inconsistencies in the availability of data may occur. Equitalytics
+                    is intended to be used solely as an educational tool and should not be construed as financial or investment advice.
+                    Equitalytics and any affiliated parties disclaim any responsibility for errors or omissions in the information provided or for any actions taken
+                    based upon this information.
+
+                </p>
+            </section>
+            <section className="container p-4 text-center">
                 <h3>
-                    &copy; 2024 Equitalytics made by {" "}
+                    &copy; 2024 Equitalytics built by {" "}
                     <a
                         rel="noreferrer noopener"
                         target="_blank"

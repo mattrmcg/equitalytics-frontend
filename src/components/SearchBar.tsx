@@ -5,6 +5,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 import { 
     Command,
@@ -21,20 +22,6 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-interface Ticker {
-    value: string;
-}
-// NEED TO GRAB THIS FROM DATABASE
-async function fetchTickers(): Promise<Ticker[]> {
-    try {
-        const res = await fetch("http://localhost:8080/info/tickers");
-        const data = await res.json();
-        return data
-    } catch (error) {
-        console.error(`Error fetching tickers:`, error);
-        return [];
-    }
-}
 
 interface Ticker {
     value: string;
@@ -93,9 +80,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({ tickers }) => {
                     </Command>
                 </PopoverContent>
             </Popover>
-            <Button className="mx-2 w-[100px]">
-                Analyze
-            </Button>
+            <Link href={`/search/${value}`} passHref>
+                <Button className="mx-2 w-[100px]">
+                    Analyze
+                </Button>
+            </Link>
         </div>
     );
 

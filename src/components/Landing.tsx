@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Suggestions } from "@/components/suggestions"
 
 export const Landing = () => {
     return (
@@ -10,7 +12,12 @@ export const Landing = () => {
                 Generate reports on filing data and financial metrics for over 2000 public companies.
             </p>
             <div className="">
-                <Button>Analyze Company</Button>
+                <Link href="/search" passHref>
+                    <Button>Try It Out</Button>
+                </Link>
+            </div>
+            <div className=" w-[80%] mx-auto p-2">
+                <Suggestions />
             </div>
         </div>
     );
