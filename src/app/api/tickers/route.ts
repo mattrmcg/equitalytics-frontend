@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const fetchFromBackend = async () => {
-    const res = await fetch('http://localhost:8080/info/tickers');
+    const res = await fetch(process.env.EQL_TICKERS_URL as string);
 
     if (!res.ok) {
         throw new Error('Failed to fetch tickers');

@@ -31,7 +31,7 @@ interface DataDashboardProps {
 
 async function getData(ticker: string) {
     "use server"
-    const res = await fetch("http://localhost:8080/info/" + ticker, { next: { revalidate: 3600}}) // revalidate very hour
+    const res = await fetch(process.env.EQL_API_URL as string + "/info/" + ticker, { next: { revalidate: 3600}}) // revalidate very hour
     
     if (!res.ok) {
         throw new Error('Failed to fetch data')
