@@ -14,7 +14,7 @@ export const ProgressAnimated: React.FC<ProgressAnimatedProps> = ({ score }) => 
     React.useEffect(() => {
         const timer = setTimeout(() => setProgress((100 / 9) * score), 500)
         return () => clearTimeout(timer)
-    }, [])
+    }, [score])
 
     return <Progress value={progress} className="my-auto mx-4" indicatorColor={"bg-primary"} />
 }

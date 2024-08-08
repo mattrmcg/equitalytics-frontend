@@ -9,7 +9,7 @@ export const Footer = () => {
 
             <section className="container text-center p-2 pb-0 max-w-[65%]">
                 <p className="text-sm text-muted-foreground">
-                    <span className="text-sm font-bold">Disclaimer:</span> Data is sourced directly from the SEC and is extracted from each reporting entity's latest yearly filings. Data is not
+                    <span className="text-sm font-bold">Disclaimer:</span> Data is sourced directly from the SEC and is extracted from each reporting entity&apos;s latest yearly filings. Data is not
                     guaranteed to be accurate or up-to-date, and inconsistencies in the availability of data may occur. Equitalytics
                     is intended to be used solely as an educational tool and should not be construed as financial or investment advice.
                     Equitalytics and any affiliated parties disclaim any responsibility for errors or omissions in the information provided or for any actions taken
