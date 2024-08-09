@@ -28,7 +28,7 @@ interface Ticker {
 }
 
 const fetchTickers = async (): Promise<Ticker[]> => {
-    const response = await fetch("/api/tickers");
+    const response = await fetch(process.env.URL + "/api/tickers");
     if (!response.ok) {
         throw new Error('Failed to fetch tickers');
     }
