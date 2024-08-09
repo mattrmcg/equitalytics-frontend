@@ -27,13 +27,20 @@ interface Ticker {
     value: string;
 }
 
-interface SearchBarProps {
-    tickers: Ticker[];
-}
+const fetchTickers = async (): Promise<Ticker[]> => {
+    const response = await fetch("/api/tickers");
+    if (!response.ok) {
+        throw new Error('Failed to fetch tickers');
+    }
+    const tickers: Ticker[] = await response.json();
+    return tickers;
+};
 
-export const SearchBar: React.FC<SearchBarProps> = ({ tickers }) => {
+export const SearchBar = async () => {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
+
+    const tickers = await fetchTickers();
     
     return (
         <div>
