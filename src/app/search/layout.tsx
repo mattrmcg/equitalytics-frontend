@@ -6,7 +6,7 @@ interface Ticker {
 }
 
 const fetchTickers = async () => {
-    const response = await fetch("http://localhost:3000/api/tickers");
+    const response = await fetch("/api/tickers");
     if (!response.ok) {
         throw new Error('Failed to fetch tickers');
     }
