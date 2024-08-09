@@ -1,6 +1,18 @@
 import * as React from "react"
 import { SearchBar } from "@/components/SearchBar"
 
+interface Ticker {
+    value: string;
+}
+
+const fetchTickers = async () => {
+    const response = await fetch(process.env.URL + "/api/tickers");
+    if (!response.ok) {
+        throw new Error('Failed to fetch tickers');
+    }
+    const tickers = await response.json();
+    return tickers;
+}
 
 // async function fetchTickers(): Promise<Ticker[]> {
 //     try {
@@ -28,10 +40,12 @@ export default async function SearchLayout({
     //     getTickers();
     // }, []);
 
+    const tickers = await fetchTickers();
+
     return (
         <div className="min-w-full min-h-full">
             <div className=" py-2 flex justify-center">
-                <SearchBar />
+                <SearchBar tickers={tickers} />
             </div>
             {children}
         </div>
