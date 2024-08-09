@@ -6,7 +6,7 @@ interface Ticker {
 }
 
 const fetchTickers = async () => {
-    const response = await fetch(process.env.URL + "/api/tickers");
+    const response = await fetch(`${process.env.URL}/api/tickers`);
     if (!response.ok) {
         throw new Error('Failed to fetch tickers');
     }
