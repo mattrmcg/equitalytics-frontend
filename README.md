@@ -5,7 +5,7 @@
 
 All data is aggregated, validated, and stored on the backend. Some metrics are sourced directly from the SEC, while many of the ratios as well as the piotroski scoring is calculated from the retrieved data.
 
-Unfortunately, many companies do not report certain metrics under the same names, so data for some companies may be omitted because it was either not included or included under an unrecognized naming scheme. This is something I'm actively working to fix.
+Unfortunately, some companies do not report certain metrics under the same names, so data for some companies may be omitted because it was either not included or included under an unrecognized naming scheme. This is something I'm actively working to fix.
 
 The backend repository is located [here](https://github.com/mattrmcg/equitalytics-backend). This is where the bulk of the code written for the project is stored.
 
