@@ -11,4 +11,4 @@ The backend repository is located [here](https://github.com/mattrmcg/equitalytic
 
 Information on financial metrics and what they indicate: \
 [https://www.investopedia.com/terms/f/fundamentalanalysis.asp](https://www.investopedia.com/terms/f/fundamentalanalysis.asp) \
-[https://www.investopedia.com/terms/p/piotroski-score.asp](https://www.investopedia.com/terms/p/piotroski-score.asp) \
+[https://www.investopedia.com/terms/p/piotroski-score.asp](https://www.investopedia.com/terms/p/piotroski-score.asp) 
