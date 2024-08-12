@@ -9,6 +9,6 @@ Unfortunately, many companies do not report certain metrics under the same names
 
 The backend repository is located [here](https://github.com/mattrmcg/equitalytics-backend). This is where the bulk of the code written for the project is stored.
 
-Information on financial metrics and what they indicate:
+Information on financial metrics and what they indicate: \
 [https://www.investopedia.com/terms/f/fundamentalanalysis.asp](https://www.investopedia.com/terms/f/fundamentalanalysis.asp)
 [https://www.investopedia.com/terms/p/piotroski-score.asp](https://www.investopedia.com/terms/p/piotroski-score.asp)
