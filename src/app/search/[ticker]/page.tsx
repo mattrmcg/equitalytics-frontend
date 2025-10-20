@@ -1,9 +1,12 @@
-import { DataDashboard } from "@/components/DataDashboard"
+import { FilingYearList } from "@/components/FilingYearList"
 
-export default function TickerPage({ params }: { params: { ticker: string } }) {
+export default async function TickerPage(props: any) {
+    const params = props?.params ?? {};
+    const ticker = String(await (params.ticker ?? "")).trim();
+
     return (
         <div className="w-[80%] mx-auto">
-            <DataDashboard ticker={params.ticker}/>
+            <FilingYearList ticker={ticker}/>
         </div>
     );
 };
