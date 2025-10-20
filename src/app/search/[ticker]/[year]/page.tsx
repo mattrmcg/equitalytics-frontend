@@ -48,14 +48,10 @@ const formatNumber = (val: number | string | null | undefined) => {
   return s;
 };
 
-export default async function YearPage({ 
-    params ,
-}: {
-    params: { ticker: string | Promise<string>; year: string | Promise<string> };
-}) {
-    const resolvedParams = await params
-    const ticker = (await resolvedParams.ticker).trim();
-    const yearStr = (await resolvedParams.year).trim();
+export default async function YearPage(props: any) {
+    const params = props?.params ?? {};
+    const ticker = String(await (params.ticker ?? "")).trim();
+    const yearStr = String(await (params.year ?? "")).trim();
     const yearNum = Number.isFinite(Number(yearStr)) ? Number(yearStr) : null;
 
     const { data, error } = await supabase.rpc('get_facts_for_ticker_cte', {
