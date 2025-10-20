@@ -1,5 +1,6 @@
-import * as React from "react"
-import { SearchBar } from "@/components/SearchBar"
+export const dynamic = "force-dynamic";
+import * as React from "react";
+import { SearchBar } from "@/components/SearchBar";
 import { createClient } from "@supabase/supabase-js"
 
 interface Ticker {
