@@ -19,7 +19,7 @@ export const Footer = () => {
             </section>
             <section className="container p-4 text-center">
                 <h3>
-                    &copy; 2024 Equitalytics built by {" "}
+                    &copy; 2025 Equitalytics built by {" "}
                     <a
                         rel="noreferrer noopener"
                         target="_blank"

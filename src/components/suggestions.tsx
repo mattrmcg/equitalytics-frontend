@@ -5,20 +5,20 @@ export const Suggestions = () => {
 
     return (
         <div className="flex justify-between w-full mx-auto">
-            <Link href="/search/AAPL" passHref>
-                <Button variant="outline" className="bg-background w-[80px]">AAPL</Button>
-            </Link>
-            <Link href="/search/ADBE" passHref>
-                <Button variant="outline" className="bg-background w-[80px]">ADBE</Button>
-            </Link>
-            <Link href="/search/CSCO" passHref>
-                <Button variant="outline" className="bg-background w-[80px]">CSCO</Button>
+            <Link href="/search/BRK-B" passHref>
+                <Button variant="outline" className="bg-background w-[80px]">BRK-B</Button>
             </Link>
             <Link href="/search/GM" passHref>
                 <Button variant="outline" className="bg-background w-[80px]">GM</Button>
             </Link>
-            <Link href="/search/MSFT" passHref>
-                <Button variant="outline" className="bg-background w-[80px]">MSFT</Button>
+            <Link href="/search/GOOG" passHref>
+                <Button variant="outline" className="bg-background w-[80px]">GOOG</Button>
+            </Link>
+            <Link href="/search/META" passHref>
+                <Button variant="outline" className="bg-background w-[80px]">META</Button>
+            </Link>
+            <Link href="/search/NVDA" passHref>
+                <Button variant="outline" className="bg-background w-[80px]">NVDA</Button>
             </Link>
             <Link href="/search/PEP" passHref>
                 <Button variant="outline" className="bg-background w-[80px]">PEP</Button>

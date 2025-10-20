@@ -1,49 +1,45 @@
 import * as React from "react"
 import { SearchBar } from "@/components/SearchBar"
+import { createClient } from "@supabase/supabase-js"
 
 interface Ticker {
     value: string;
 }
 
-const fetchTickers = async () => {
-    const response = await fetch(process.env.EQL_TICKERS_URL as string);
-    if (!response.ok) {
-        throw new Error('Failed to fetch tickers');
-    }
-    const tickers = await response.json();
-    return tickers;
-}
+const supabase = createClient(
+    process.env.SUPABASE_URL as string,
+    process.env.SUPABASE_KEY as string,
+    { auth: { persistSession: false } }
+)
 
-// async function fetchTickers(): Promise<Ticker[]> {
-//     try {
-//         const res = await fetch("/api/tickers")
-//         const data = await res.json();
-//         return data;
-//     } catch (error) {
-//         console.error(`Error fetching tickers:`, error)
-//         return [];
-//     }
-// }
+const _tickersCache: {data?: Ticker[]; expiresAt?: number } = {};
+
+const fetchTickers = async (): Promise<Ticker[]> => {
+    const now = Date.now()
+    if (_tickersCache.data && _tickersCache.expiresAt && _tickersCache.expiresAt > now) {
+        return _tickersCache.data;
+    }
+
+    const { data, error } = await supabase.from('companies').select('ticker');
+    if (error) throw error;
+
+    const result = (data ?? []).map((d: any) => ({ value: d.ticker ?? d.value ?? String(d) }));
+    _tickersCache.data = result;
+    _tickersCache.expiresAt = now + 60 * 60 * 60 * 1000;
+
+
+    return result;
+}
 
 export default async function SearchLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>){
-    // const [tickers, setTickers] = React.useState<Ticker[]>([]);
-
-    // React.useEffect(() => {
-    //     const getTickers = async () => {
-    //         const fetchedTickers = await fetchTickers();
-    //         setTickers(fetchedTickers);
-    //     };
-    //     getTickers();
-    // }, []);
-
     const tickers = await fetchTickers();
 
     return (
-        <div className="min-w-full min-h-full">
+        <div className="min-w-full min-h-[71dvh] bg-background text-foreground">
             <div className=" py-2 flex justify-center">
                 <SearchBar tickers={tickers} />
             </div>
