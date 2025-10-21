@@ -1,5 +1,6 @@
 # Equitalytics
-![Animation](https://github.com/user-attachments/assets/ac1dbcc3-809a-4a14-9019-0a7f4c57261d)
+![eql-gif](https://github.com/user-attachments/assets/6ee5c5c6-2a78-4a9c-9eac-6ee2e38e7c0a)
+
 
 [Equitalytics](https://www.equitalytics.com) is a platform for analyzing fundamental company data along with key financial ratios and metrics. Equitalytics has aggregated yearly filing data from over 2500 public companies for quick and convenient access by users of the site.
 
