@@ -2,7 +2,7 @@
 ![eql-gif](https://github.com/user-attachments/assets/6ee5c5c6-2a78-4a9c-9eac-6ee2e38e7c0a)
 
 
-[Equitalytics](https://www.equitalytics.net) is a platform for analyzing fundamental company filing data. Yearly filing data from over 2500 public companies is aggregated for quick and convenient access by users of the site.
+[Equitalytics](https://www.equitalytics.net) is a platform for analyzing fundamental company filing data. The intention is to provide easy and convenient access to filing metrics for over 2500 public companies.
 
 All data is aggregated, validated, and stored on a postgres instance. All metrics are sourced directly from the SEC.
 
